@@ -1,121 +1,64 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from "react";
+import "./App.css"; 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [temaOscuro, setTemaOscuro] = useState(false);
+
+  const cambiarTema = () => {
+    setTemaOscuro(!temaOscuro);
+  };
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div
+      style={{
+        minHeight: "100vh",
+        padding: "20px",
+        transition: "0.3s",
+        backgroundColor: temaOscuro ? "#1a1a1a" : "#ffffff",
+        color: temaOscuro ? "#eaee0e" : "#111111",
+      }}
+    >
+      <h1 style={{ color: temaOscuro ? "#fdf900" : "#1a1a1a" }}>
+  {temaOscuro ? "Tema Oscuro" : "Tema Claro"}
+</h1>
 
-      <div className="ticks"></div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <button
+        onClick={cambiarTema}
+        style={{
+          padding: "10px 20px",
+          marginBottom: "20px",
+          cursor: "pointer",
+          borderRadius: "8px",
+          border: "none",
+          backgroundColor: temaOscuro ? "#4f46e5" : "#2563eb",
+          color: "white",
+          fontSize: "16px",
+        }}
+      >
+        {temaOscuro ? "Tema Claro" : "Tema Oscuro"}
+      </button>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      <p>
+        El martín pescador chileno (Megaceryle torquata) es un ave nativa de Chile conocida por su plumaje azul grisáceo
+        , su pecho rojizo y su gran pico en forma de lanza. Habita principalmente en ríos, lagos y estuarios, 
+        donde se posa en ramas o rocas para 
+        lanzarse en picada y capturar peces, su alimento principal. Es un ave solitaria, muy territorial y 
+        uno de los símbolos más característicos de los ecosistemas de agua dulce del sur de Chile.
+      </p>
+
+      
+      <img
+        src="https://guiadeavesdemisiones.com/wp-content/uploads/2020/03/hembra-scaled.jpg"
+        alt="Martin Pescador Chileno"
+        style={{
+          width: "300px",
+          marginTop: "20px",
+          borderRadius: "10px",
+        }}
+      />
+    </div>
+  );
 }
 
-export default App
+export default App;
